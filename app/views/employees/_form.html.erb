@@ -7,11 +7,11 @@
     <%= f.input :firstname %>
     <%= f.input :lastname %>
     <%= f.input :email %>
-    <%= f.input :gender %>
+    <%= f.input :gender, :collection => %w[Male Female] %>
     <%= f.input :phone %>
     <%= f.input :address %>
     <%= f.input :employee_id %>
-    <%= f.input :department %>
+    <%= f.input :department, :collection => %w[IT Tester Developer Designer] %>
   </div>
 
   <div class="form-actions">
