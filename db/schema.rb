@@ -12,12 +12,12 @@
 
 ActiveRecord::Schema.define(version: 2019_02_03_053433) do
 
-  create_table "employees", force: :cascade do |t|
+  create_table "employees", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "firstname"
     t.string "lastname"
     t.string "email"
     t.string "gender"
-    t.integer "phone"
+    t.string "phone"
     t.text "address"
     t.string "employee_id"
     t.string "department"
