@@ -75,6 +75,16 @@
     </div>
   </div>
 
+
+  <div class="row no-gutters">
+    <div class="col-6 col-md-4">
+      <strong>Picture:</strong>
+    </div>
+    <div class="col-12 col-sm-6 col-md-8">
+      <%= image_tag(@employee.picture_url, width:'40%') if @employee.picture.present? %>
+    </div>
+  </div>
+
 </div>
 
 <%= link_to 'Edit', edit_employee_path(@employee) %> |

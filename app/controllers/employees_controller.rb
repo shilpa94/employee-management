@@ -6,6 +6,8 @@ class EmployeesController < ApplicationController
   def index
     if params[:term].present?
       @employees = Employee.where('firstname LIKE ? or lastname LIKE ? or email LIKE ?', "%#{params[:term]}%" ,"%#{params[:term]}%", "%#{params[:term]}%")
+    elsif params[:department].present?
+      @employees = Employee.where(department: params[:department])
     else 
       @employees = Employee.all
     end
@@ -73,6 +75,6 @@ class EmployeesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def employee_params
-      params.require(:employee).permit(:firstname, :lastname, :email, :gender, :phone, :address, :employee_id, :department)
+      params.require(:employee).permit(:firstname, :lastname, :email, :gender, :phone, :address, :employee_id, :department, :picture)
     end
 end
