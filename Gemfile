@@ -12,6 +12,8 @@ gem 'net-ssh'
 
 gem 'bootstrap', '~> 4.2.1'
 gem 'jquery-rails'
+gem 'jquery-ui-rails', '5.0.5'
+
 gem 'simple_form'
 
 # Use Puma as the app server
