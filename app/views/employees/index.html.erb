@@ -11,12 +11,25 @@
         <%= submit_tag 'Search' %>
       <% end %>
     </div>
-    <div class="col-4">
-      <%= form_tag(employees_path, method: :get) do %>
-        <%= select_tag "department", options_for_select(["IT", "Tester", "Developer", "Designer" ]) %>
-        <%= submit_tag 'Go' %>
-      <% end %>
-    </div>
+    <!-- <div class="col-4"> -->
+      <%#= form_tag(employees_path, method: :get) do %>
+        <%#= select_tag "department", options_for_select(["IT", "Tester", "Developer", "Designer" ]) %>
+        <%#= submit_tag 'Go' %>
+      <%# end %>
+    <!-- </div> -->
+
+
+       <div>
+         <select class="list">
+           <option value="IT">IT</option>
+           <option value="Designer">Designer</option>
+           <option value="Tester">Tester</option>
+           <option value="Developer">Developer</option>
+         </select>
+
+       </div>
+    
+
   </div>
 </div>
 
@@ -37,7 +50,7 @@
     </tr>
   </thead>
 
-  <tbody>
+  <tbody class="render">
     <% @employees.each do |employee| %>
       <tr>
         <td><%= employee.firstname %></td>
@@ -48,7 +61,7 @@
         <td><%= employee.address %></td>
         <td><%= employee.employee_id %></td>
         <td><%= employee.department %></td>
-        <td><%= image_tag employee.picture_url, width: '40%' if employee.picture.present? %></td>4
+        <td><%= image_tag employee.picture_url, width: '40%' if employee.picture.present? %></td>
         <td><%= link_to 'Show', employee %></td>
         <td><%= link_to 'Edit', edit_employee_path(employee) %></td>
         <td><%= link_to 'Destroy', employee, method: :delete, data: { confirm: 'Are you sure?' } %></td>
@@ -60,3 +73,23 @@
 <br>
 
 <%= link_to 'New Employee', new_employee_path, class:"btn btn-primary" %>
+
+
+<script type="text/javascript">
+  $("select.list").change(function(){
+      var depname= $(this).val();
+      //alert("You have selected the department- " + depname);
+        $.ajax({
+          type: "GET", 
+          url: "/employees",
+          data: {department: depname},
+          success: function(data, textStatus, jqXHR){
+            console.log(data);
+            $(".render").empty();
+            $(".render").append(data);
+          },
+          error: function(jqXHR, textStatus, errorThrown){}
+        })
+      });
+            
+</script>

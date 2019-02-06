@@ -8,6 +8,7 @@ class EmployeesController < ApplicationController
       @employees = Employee.where('firstname LIKE ? or lastname LIKE ? or email LIKE ?', "%#{params[:term]}%" ,"%#{params[:term]}%", "%#{params[:term]}%")
     elsif params[:department].present?
       @employees = Employee.where(department: params[:department])
+      render partial: "employeeList", :collection => @employees
     else 
       @employees = Employee.all
     end

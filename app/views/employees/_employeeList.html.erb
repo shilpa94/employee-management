@@ -1,0 +1,17 @@
+
+<% @employees.each do |employee| %>
+  <tr>
+    <td><%= employee.firstname %></td>
+    <td><%= employee.lastname %></td>
+    <td><%= employee.email %></td>
+    <td><%= employee.gender %></td>
+    <td><%= employee.phone %></td>
+    <td><%= employee.address %></td>
+    <td><%= employee.employee_id %></td>
+    <td><%= employee.department %></td>
+    <td><%= image_tag employee.picture_url, width: '40%' if employee.picture.present? %></td>4
+    <td><%= link_to 'Show', employee %></td>
+    <td><%= link_to 'Edit', edit_employee_path(employee) %></td>
+    <td><%= link_to 'Destroy', employee, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
