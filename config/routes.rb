@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  devise_for :employees,path: "employees",controllers: {
+  devise_for :employees, path: "employees",controllers: {
         registrations: 'employees/registrations'
       }
   resources :employees
