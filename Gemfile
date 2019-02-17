@@ -15,6 +15,8 @@ gem 'jquery-rails'
 gem 'jquery-ui-rails', '5.0.5'
 
 gem 'simple_form'
+gem 'cancancan', '~> 2.3'
+gem 'rolify', '~> 5.2'
 
 # Use Puma as the app server
 gem 'puma', '~> 3.11'
