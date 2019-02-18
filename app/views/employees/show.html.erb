@@ -1,69 +1,68 @@
 
 
 <div class="container">
-  <div class="card mb-3" style="max-width: 540px;">
-    <div class="card-header bg-transparent border-success">
-      <%= @employee.firstname.upcase %>
+  <div class="row">
+
+    <div class="col-md-4">
+      <div class="card" >
+      <%= image_tag @employee.picture_url, class: "card-img" if @employee.picture.present? %>
+      </div>
     </div>
 
-    <div class="row no-gutters">
-      <div class="col-md-4">
-        <%= image_tag @employee.picture_url, class: "card-img" if @employee.picture.present? %>
-      </div>
-
-      <div class="col-md-8">
+    <div class="col-md-4">
+      <div class="card">
         <div class="card-body">
-          <div>
-            <strong>Firstname:</strong>
-            <%= @employee.firstname %>
-          </div>
+           <div>
+             <strong>Firstname:</strong>
+             <%= @employee.firstname %>
+           </div>
 
-          <div>
-            <strong>Lastname:</strong>
-            <%= @employee.lastname %>
-          </div>
+           <div>
+             <strong>Lastname:</strong>
+             <%= @employee.lastname %>
+           </div>
 
-          <div>
-            <strong>Email:</strong>
-            <%= @employee.email %>
-          </div>
+           <div>
+             <strong>Email:</strong>
+             <%= @employee.email %>
+           </div>
 
-          <div>
-            <strong>Gender:</strong>
-            <%= @employee.gender %>
-          </div>
+           <div>
+             <strong>Gender:</strong>
+             <%= @employee.gender %>
+           </div>
 
-          <div>
-            <strong>Phone:</strong>
-            <%= @employee.phone %>
-          </div>
+           <div>
+             <strong>Phone:</strong>
+             <%= @employee.phone %>
+           </div>
 
-          <div>
-            <strong>Address:</strong>
-            <%= @employee.address %>
-          </div>
+           <div>
+             <strong>Address:</strong>
+             <%= @employee.address %>
+           </div>
 
-          <div>
-            <strong>Employee:</strong>
-            <%= @employee.employee_id %>
-          </div>
+           <div>
+             <strong>Employee:</strong>
+             <%= @employee.employee_id %>
+           </div>
 
-          <div>
-            <strong>Department:</strong>
-            <%= @employee.department %>
-          </div>
+           <div>
+             <strong>Department:</strong>
+             <%= @employee.department %>
+           </div>
 
-          <div>
-            <strong>DOB:</strong>
-            <%= @employee.DOB %>
-          </div>
+           <div>
+             <strong>DOB:</strong>
+             <%= @employee.DOB %>
+           </div>
+           <br>
+           <%= link_to 'Edit', edit_employee_path(@employee),class: "btn btn-outline-dark" %> 
+           <%= link_to 'Back', employees_path, class: "btn btn-outline-dark" %> 
         </div>
       </div>
-   </div>
-   <div class="card-footer bg-transparent border-success">
-    <%= link_to 'Edit', edit_employee_path(@employee),class: "btn btn-outline-dark" %> 
-    <%= link_to 'Back', employees_path, class: "btn btn-outline-dark" %> 
-   </div>
+
+    </div>
   </div>
-</div>
-</div>
+
+  

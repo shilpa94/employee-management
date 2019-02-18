@@ -1,17 +1,45 @@
 
-<% @employees.each do |employee| %>
-  <tr>
-    <td><%= employee.firstname %></td>
-    <td><%= employee.lastname %></td>
-    <td><%= employee.email %></td>
-    <td><%= employee.gender %></td>
-    <td><%= employee.phone %></td>
-    <td><%= employee.address %></td>
-    <td><%= employee.employee_id %></td>
-    <td><%= employee.department %></td>
-    <td><%= image_tag employee.picture_url, width: '40%' if employee.picture.present? %></td>4
-    <td><%= link_to 'Show', employee %></td>
-    <td><%= link_to 'Edit', edit_employee_path(employee) %></td>
-    <td><%= link_to 'Destroy', employee, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-  </tr>
-<% end %>
+    <div class="card-deck" style="display: flex; width: 60rem;">
+        <% @employees.in_groups_of(3) do |group| %>
+        <% group.compact.each do |employee| %>
+      <div class="card" style="width: 18rem;">
+        <%= image_tag employee.picture_url, class: "card-img-top", style: "width: 10rem; height: 10rem" if employee.picture.present? %>
+        <div class="card-body">
+            <div>
+              <strong>Name:</strong>
+              <%= employee.firstname %>
+              <%= employee.lastname %>
+            </div>
+            <div>
+              <strong>Email:</strong>
+              <%= employee.email %>
+            </div>
+            
+            <div>
+              <strong>Phone:</strong>
+              <%= employee.phone %>
+            </div>
+
+            <div>
+              <strong>Address:</strong>
+              <%= employee.address %>
+            </div>
+
+            <div>
+              <strong>Employee:</strong>
+              <%= employee.employee_id %>
+            </div>
+
+            <div>
+              <strong>Department:</strong>
+              <%= employee.department %>
+            </div>
+             <%= link_to 'Show', employee, class:"btn btn-primary" %>
+             <%= link_to 'Edit', edit_employee_path(employee),class:"btn btn-primary" %>
+             <%= link_to 'Destroy', employee, method: :delete, data: { confirm: 'Are you sure?' },class:"btn btn-primary" %>
+        </div>
+      </div>
+       <% end %>
+       <% end %>
+    </div>
+
