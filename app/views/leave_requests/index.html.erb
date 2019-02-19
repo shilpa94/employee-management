@@ -1,0 +1,28 @@
+<div class="container">
+
+  <table class="table">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">Start Date</th>
+        <th scope="col">End Date</th>
+        <th scope="col">Reason</th>
+      </tr>
+    </thead>
+      <tbody>
+        <% @leave_request.each do |leave_request| %>
+        <tr>
+         <td><%= leave_request.start_date %></td>
+         <td><%= leave_request.end_date %></td>
+         <td><%= leave_request.reason %></td>
+        </tr>
+        <% end %>
+      </tbody>
+   </table>
+  
+  <%= link_to 'New ', new_leave_request_path , class:"btn btn-primary" %>
+
+</div>
+      
+
+
+

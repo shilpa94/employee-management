@@ -8,6 +8,7 @@
       </a>
       <div class="dropdown-menu" aria-labelledby="navbarDropdown">
         <%= link_to 'Edit profile', edit_employee_registration_path, class: 'dropdown-item' %>
+        <%= link_to 'Leave Request', leave_requests_path  , class: 'dropdown-item' %>
         <%= link_to "Logout", destroy_employee_session_path, method: :delete, class: 'dropdown-item' %>
       </div>
     </nav>

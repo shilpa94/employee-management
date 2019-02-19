@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_02_15_065739) do
+ActiveRecord::Schema.define(version: 2019_02_18_112133) do
 
   create_table "employees", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "firstname"
@@ -39,6 +39,15 @@ ActiveRecord::Schema.define(version: 2019_02_15_065739) do
     t.index ["employee_id", "role_id"], name: "index_employees_roles_on_employee_id_and_role_id"
     t.index ["employee_id"], name: "index_employees_roles_on_employee_id"
     t.index ["role_id"], name: "index_employees_roles_on_role_id"
+  end
+
+  create_table "leave_requests", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.date "start_date"
+    t.date "end_date"
+    t.integer "employee_id"
+    t.text "reason"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "roles", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
