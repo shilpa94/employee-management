@@ -1,6 +1,12 @@
 class LeaveRequestsController < ApplicationController
+  before_action :set_leaverequest, only: [:approve, :reject]
+
  def index
-   @leave_request = LeaveRequest.all
+  if current_employee.has_role? :admin
+    @leave_request = LeaveRequest.all
+  else
+    @leave_request = LeaveRequest.where(employee_id: current_employee.id)
+  end
  end
 
   def new
@@ -23,11 +29,26 @@ class LeaveRequestsController < ApplicationController
     end
   end
 
+  def approve
+      @leave_request.update(approve: true)
+      redirect_to leave_requests_path, notice: 'Leave approved' 
+  end
+
+  def reject
+      @leave_request.update(reject: true)
+      redirect_to leave_requests_path, notice: 'Leave rejected' 
+  end
+
    
   private
 
+  def set_leaverequest
+    @leave_request = LeaveRequest.find(params[:id])
+  end
+
   def leave_params
-    params.require(:leave_request).permit(:start_date, :end_date, :reason, :employee_id)
+    params.require(:leave_request).permit(:start_date, :end_date, :reason, :employee_id, 
+    :approve, :reject)
   end
   
 end

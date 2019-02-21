@@ -1,5 +1,4 @@
 
-<div class="container" style="margin-bottom: 10px;">
   <div class="d-flex flex-row-reverse bd-highlight">
     <div class="p-2 bd-highlight">
       <%= form_tag(employees_path, method: :get) do %>
@@ -7,7 +6,7 @@
       <%= submit_tag 'Search' %>
       <% end %>      
     </div>
-    <div>
+    <div class="p-2 bd-highlight">
       <select class="list">
         <option selected disabled>Department</option>
         <option value="IT">IT</option>
@@ -17,16 +16,15 @@
       </select>
     </div>
   </div>
-</div>
-
-<div class="container render">
-    <div class="card-deck" style="display: flex; width: 60rem;">
-        <% @employees.in_groups_of(3) do |group| %>
-        <div class="row">
+ 
+<div class="container render p-2">
+    <div class="card-deck" style="display: flex width: 60rem;">
+        <% @employees.in_groups_of(4) do |group| %>
+        <div class="row p-2">
         <% group.compact.each do |employee| %>
 
       <div class="card" style="width: 18rem;">
-        <%= image_tag employee.picture_url, class: "card-img-top", style: "width: 10rem; height: 10rem" if employee.picture.present? %>
+        <%= image_tag employee.picture_url, class: "card-img-top", style: "width: 12rem; height: 12rem" if employee.picture.present? %>
         <div class="card-body">
             <div>
               <strong>Name:</strong>
