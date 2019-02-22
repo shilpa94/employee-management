@@ -8,9 +8,10 @@
       </a>
       <div class="dropdown-menu" aria-labelledby="navbarDropdown">
         <% if current_employee.has_role? :admin %>
-         <%= link_to 'Home', employees_path  , class: 'dropdown-item' %>
+            <%= link_to 'Home', employees_path  , class: 'dropdown-item' %>
+            <%= link_to 'New Employee',new_employee_registration_path, class: 'dropdown-item' %>
         <% else %>
-         <%= link_to 'Home', employee_path(current_employee)  , class: 'dropdown-item' %>
+            <%= link_to 'Home', employee_path(current_employee)  , class: 'dropdown-item' %>
         <% end %>
         <%= link_to 'Edit profile', edit_employee_path(current_employee), class: 'dropdown-item' %>
         <%= link_to 'Leave Request', leave_requests_path  , class: 'dropdown-item' %>

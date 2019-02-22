@@ -7,10 +7,16 @@ class EmployeesController < ApplicationController
   # GET /employees.json
   def index
     if params[:term].present?
-      @employees = Employee.where('firstname LIKE ? or lastname LIKE ? or email LIKE ?', "%#{params[:term]}%" ,"%#{params[:term]}%", "%#{params[:term]}%")
+      if params[:department].present?
+        @employees = Employee.where('firstname LIKE ? or lastname LIKE ? or email LIKE ?', "%#{params[:term]}%" ,"%#{params[:term]}%", "%#{params[:term]}%").where(department: params[:department])
+      else
+        @employees = Employee.where('firstname LIKE ? or lastname LIKE ? or email LIKE ?', "%#{params[:term]}%" ,"%#{params[:term]}%", "%#{params[:term]}%")
+      end
     elsif params[:department].present?
       @employees = Employee.where(department: params[:department])
-      render partial: "employeeList", :collection => @employees
+      puts "employees"
+      puts @employees.inspect
+      # render partial: "employeeList", :collection => @employees
     else 
       @employees = Employee.all
     end

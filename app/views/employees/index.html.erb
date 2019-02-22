@@ -1,21 +1,13 @@
 
-  <div class="d-flex flex-row-reverse bd-highlight">
-    <div class="p-2 bd-highlight">
-      <%= form_tag(employees_path, method: :get) do %>
-      <%= text_field_tag :term %>
-      <%= submit_tag 'Search' %>
-      <% end %>      
-    </div>
-    <div class="p-2 bd-highlight">
-      <select class="list">
-        <option selected disabled>Department</option>
-        <option value="IT">IT</option>
-        <option value="Designer">Designer</option>
-        <option value="Tester">Tester</option>
-        <option value="Developer">Developer</option>
-      </select>
-    </div>
+<div class="d-flex flex-row-reverse bd-highlight">
+  <div class="p-2 bd-highlight">
+    <%= form_tag(employees_path, method: :get) do %>
+      <%= text_field_tag :term, params[:term] %>
+      <%= select_tag :department, options_for_select([ "IT", "Designer", "Tester", "Developer" ], params[:department]), onchange: "this.form.submit()", prompt: "Department", style: "height: 30px" %>
   </div>
+  <% end %>      
+  </div>
+</div>
  
 <div class="container render p-2">
     <div class="card-deck" style="display: flex width: 60rem;">
@@ -23,8 +15,8 @@
         <div class="row p-2">
         <% group.compact.each do |employee| %>
 
-      <div class="card" style="width: 18rem;">
-        <%= image_tag employee.picture_url, class: "card-img-top", style: "width: 12rem; height: 12rem" if employee.picture.present? %>
+      <div class="card" style="max-width: 18rem;">
+        <%= image_tag employee.picture_url, class: "card-img-top", style: "width: 12rem; height: 13rem" if employee.picture.present? %>
         <div class="card-body">
             <div>
               <strong>Name:</strong>
@@ -68,9 +60,9 @@
 
 <br>
 
-<%= link_to 'New Employee', new_employee_registration_path, class:"btn btn-primary" %>
+<%#= link_to 'New Employee', new_employee_registration_path, class:"btn btn-primary" %>
 
-<script type="text/javascript">
+<!-- <script type="text/javascript">
   $("select.list").change(function(){
     var depname= $(this).val();
     //alert("You have selected the department- " + depname);
@@ -87,4 +79,4 @@
     })
   });
             
-</script>
+</script> -->
