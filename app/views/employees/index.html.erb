@@ -1,3 +1,5 @@
+<%= stylesheet_link_tag 'resize' %>
+<%#= javascript_include_tag 'resize_image' %>
 
 <div class="d-flex flex-row-reverse bd-highlight">
   <div class="p-2 bd-highlight">
@@ -16,7 +18,7 @@
         <% group.compact.each do |employee| %>
 
       <div class="card" style="max-width: 18rem;">
-        <%= image_tag employee.picture_url, class: "card-img-top", style: "width: 12rem; height: 13rem" if employee.picture.present? %>
+        <%= image_tag employee.picture_url, class: "card-img-top" if employee.picture.present? %>
         <div class="card-body">
             <div>
               <strong>Name:</strong>
