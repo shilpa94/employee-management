@@ -15,9 +15,21 @@
   font-family: Helvetica,Arial, "sans-serif";
 }
 */
-
+body {
+  background-color: black;
+}
 .card-img-top {
 width:16rem;
 height: 35vh;
 object-fit: cover;
 }
+
+.fa-pencil  {
+color: #BCBCBE;
+}
+.fa-trash  {
+color: #BCBCBE;
+}
+
+
+

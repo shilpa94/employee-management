@@ -1,3 +1,4 @@
+<%= stylesheet_link_tag 'resize' %>
 
 <div class="container">
   <div class="row">
@@ -7,6 +8,7 @@
       </div>
       <div class="card" style="width: 20rem">
         <div class="card-body">
+          <%= link_to '', edit_employee_path(@employee),class:"fa fa-pencil fa-2x"  %>
           <div>
             <strong>Firstname:</strong>
             <%= @employee.firstname %>
@@ -51,7 +53,7 @@
             <strong>DOB:</strong>
             <%= @employee.DOB %>
           </div>
-          
+
         </div>
       </div>
      </div>
