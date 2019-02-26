@@ -17,6 +17,7 @@ class EmployeesController < ApplicationController
       puts "employees"
       puts @employees.inspect
       # render partial: "employeeList", :collection => @employees
+     
     else 
       @employees = Employee.all
     end

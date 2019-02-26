@@ -1,22 +1,12 @@
-/*body, html {
-  width: 100%;
-  margin: 0;
-  padding: 0;
-  height: 100%;
-}
-.container {
-  width: 60%;
-  height: 70%;
-  border: dashed 2px #f7860b;
-  overflow: hidden;
-  text-align: center;
-}
-.resized {
-  font-family: Helvetica,Arial, "sans-serif";
-}
-*/
 body {
-  background-color: black;
+  background-color:white;
+}
+
+.container {
+  display: flex;
+  display-direction: row;
+  flex-wrap: wrap;
+  justify-content:flex-start; 
 }
 .card-img-top {
 width:16rem;
@@ -31,5 +21,30 @@ color: #BCBCBE;
 color: #BCBCBE;
 }
 
+@media (max-width: 480px) {
+  .card {
+    width: 100%;
+    margin: 10px;
+    align-items:center;
+  }
+}
 
+/*@media (min-width: 481px){
+  .card { 
+    margin: 10px;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .card {
+    
+  }
+}
+
+@media only screen and (min-width: 1200px) {
+  .card {
+    max-width: 18rem; 
+    margin: 10px;
+  }
+}*/
 

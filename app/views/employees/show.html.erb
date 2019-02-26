@@ -1,9 +1,8 @@
 <%= stylesheet_link_tag 'resize' %>
 
-<div class="container">
-  <div class="row">
+<div class="container" style="justify-content: center;">
     <div class="card-deck" style="display: flex;">
-      <div class="card" style="width: 18rem" >
+      <div class="card" style="width: 20rem": >
         <%= image_tag @employee.picture_url, class: "card-img" if @employee.picture.present? %>
       </div>
       <div class="card" style="width: 20rem">
@@ -56,7 +55,6 @@
 
         </div>
       </div>
-     </div>
   </div>
 
   

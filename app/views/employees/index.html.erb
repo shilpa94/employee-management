@@ -1,59 +1,52 @@
 <%= stylesheet_link_tag 'resize' %>
-<%#= javascript_include_tag 'resize_image' %>
 
 <div class="d-flex flex-row-reverse bd-highlight">
   <div class="p-2 bd-highlight">
     <%= form_tag(employees_path, method: :get) do %>
-      <%= text_field_tag :term, params[:term] %>
+      <%= text_field_tag :term, params[:term],placeholder: 'enter name or email' %>
       <%= select_tag :department, options_for_select([ "IT", "Designer", "Tester", "Developer" ], params[:department]), onchange: "this.form.submit()", prompt: "Department", style: "height: 30px;" %>
   </div>
   <% end %>      
   </div>
 </div>
  
-<div class="container render p-2">
-    <div class="card-deck" style="display: flex width: 60rem;">
-        <% @employees.in_groups_of(4) do |group| %>
-        <div class="row p-2">
-          <% group.compact.each do |employee| %>
-          <%= link_to employee do%>
-           <div class="card" style="max-width: 18rem;">
-              <%= image_tag employee.picture_url, class: "card-img-top" if employee.picture.present? %>
-          <% end %>
-            <div class="card-body">
-                <div>
-                  <strong>Name:</strong>
-                  <%= employee.firstname %>
-                  <%= employee.lastname %>
-                </div>
-                <div>
-                  <strong>Email:</strong>
-                  <%= employee.email %>
-                </div>
-                
-                <div>
-                  <strong>Phone:</strong>
-                  <%= employee.phone %>
-                </div>
-
-                <div>
-                  <strong>Employee:</strong>
-                  <%= employee.employee_id %>
-                </div>
-
-                <div>
-                  <strong>Department:</strong>
-                  <%= employee.department %>
-                </div>
-                 <%#= link_to 'Show', employee, class:"btn btn-primary" %>
-                 <%= link_to '', edit_employee_path(employee),class:"fa fa-pencil fa-2x" %>
-                 <%= link_to '', employee, method: :delete, data: { confirm: 'Are you sure?' },class:"fa fa-trash fa-2x" %>
-            </div>
-            </div>
-           <% end %>
+<div class="container p-2">
+ <% @employees.each do |employee|%>
+   <%= link_to employee do%>
+     <div class="card">
+        <%= image_tag employee.picture_url, class: "card-img-top" if employee.picture.present? %>
+     <% end %>
+     <div class="card-body">
+        <div>
+          <strong>Name:</strong>
+          <%= employee.firstname %>
+          <%= employee.lastname %>
         </div>
-       <% end %>
-    </div>
+        <div>
+          <strong>Email:</strong>
+          <%= employee.email %>
+        </div>
+        
+        <div>
+          <strong>Phone:</strong>
+          <%= employee.phone %>
+        </div>
+
+        <div>
+          <strong>Employee:</strong>
+          <%= employee.employee_id %>
+        </div>
+
+        <div>
+          <strong>Department:</strong>
+          <%= employee.department %>
+        </div>
+         <%#= link_to 'Show', employee, class:"btn btn-primary" %>
+         <%= link_to '', edit_employee_path(employee),class:"fa fa-pencil fa-2x" %>
+         <%= link_to '', employee, method: :delete, data: { confirm: 'Are you sure?' },class:"fa fa-trash fa-2x" %>
+        </div>
+     </div>
+   <% end %>
   </div>
 
 
