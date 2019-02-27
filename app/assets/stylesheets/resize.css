@@ -3,6 +3,7 @@ body {
 }
 
 .container {
+  padding: 2px;
   display: flex;
   display-direction: row;
   flex-wrap: wrap;
@@ -11,7 +12,7 @@ body {
 .card-img-top {
 width:16rem;
 height: 35vh;
-object-fit: cover;
+object-fit: contain;
 }
 
 .fa-pencil  {
@@ -29,15 +30,12 @@ color: #BCBCBE;
   }
 }
 
-/*@media (min-width: 481px){
-  .card { 
-    margin: 10px;
-  }
-}
-
-@media screen and (min-width: 768px) {
+@media (min-width: 481px){
   .card {
-    
+    margin: 5px;
+  }
+  .container {
+    justify-content: center;
   }
 }
 
@@ -46,5 +44,8 @@ color: #BCBCBE;
     max-width: 18rem; 
     margin: 10px;
   }
-}*/
+  .container {
+    justify-content: flex-start;
+  }
+}
 
