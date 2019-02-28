@@ -14,6 +14,7 @@
         <% else %>
             <%= link_to 'Home', employee_path(current_employee)  , class: 'dropdown-item' %>
         <% end %>
+        <%= link_to 'Projects', projects_path , class: 'dropdown-item' %>
         <%= link_to 'Leave Request', leave_requests_path  , class: 'dropdown-item' %>
         <%= link_to "Logout", destroy_employee_session_path, method: :delete, class: 'dropdown-item' %>
       </div>

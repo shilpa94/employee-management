@@ -1,7 +1,9 @@
 class Employee < ApplicationRecord
   resourcify
   rolify
-  has_many :leave_requests
+  has_many :leave_requests 
+  has_many :employee_projects
+  has_many :projects, through: :employee_projects
 
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
